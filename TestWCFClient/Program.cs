@@ -14,7 +14,7 @@ namespace TestWCFClient
         [STAThread]
         static void Main()
         {
-            int nb_joueur = 2;
+            int nb_joueur = 2; // nombre de client a crée
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
