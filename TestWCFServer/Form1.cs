@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.IO;
+using Microsoft.SqlServer.Server;
 
 namespace TestWCFServer
 {
@@ -23,9 +24,9 @@ namespace TestWCFServer
                 ihm = f;
             }
 
-            public void Envoie(string name, string msg)
+            public void Envoie(int ID, string msg)
             {
-                string newline = name + msg;
+                string newline  = string.Format("joueur{0,10} : " , ID) + msg;
                 if (ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString() != newline)
                 {
                     ihm.Historique.Items.Add(newline);
@@ -34,8 +35,26 @@ namespace TestWCFServer
 
             public string Maj()
             {
-                return ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString();
+                if (ihm.Historique.Items.Count - 1 == -1)
+                {
+                    return ihm.Historique.Items[0].ToString();
+                }
+                else
+                {
+                    return ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString();
+                }
 
+            }
+
+            public int AskID() {
+                for (int i = 0; i < Program.nb_max_joueur; i++)
+                {
+                    if(Program.etat[i] == -1){
+                        Program.etat[i] = 1;
+                        return i;
+                    }
+                }; 
+                return -1;
             }
         }
 
@@ -60,6 +79,11 @@ namespace TestWCFServer
         }
 
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormServeur_Load(object sender, EventArgs e)
         {
 
         }

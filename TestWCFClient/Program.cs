@@ -14,12 +14,13 @@ namespace TestWCFClient
         [STAThread]
         static void Main()
         {
-            int nb_joueur = 2; // nombre de client a crée
+            int nb_joueur = 3; // nombre de client a crée
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             for (int i = 0; i < nb_joueur; i++)
             {
+                Thread.Sleep(1000); // temporisation pour eviter les colision
                 var thread = new Thread(CreateClient);
                 thread.TrySetApartmentState(ApartmentState.STA);
                 thread.Start();
@@ -28,7 +29,14 @@ namespace TestWCFClient
 
         static private void CreateClient()
         {
-            Application.Run(new FormClient());
+            try
+            {
+                Application.Run(new FormClient()); // on lance le programme
+            }
+            catch
+            {
+                Thread.CurrentThread.Abort(); //si  erreur dans le programme on supprime le thread
+            }
         }
     }
 }

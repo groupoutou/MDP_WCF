@@ -6,6 +6,7 @@
         /// Variable nécessaire au concepteur.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private int ID;
 
         /// <summary>
         /// Nettoyage des ressources utilisées.

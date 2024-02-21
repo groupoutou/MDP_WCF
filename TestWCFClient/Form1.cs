@@ -11,21 +11,28 @@ using System.ServiceModel;
 namespace TestWCFClient
 {
     public partial class FormClient : Form
+
     {
         ChannelFactory<TestWCF.IService> scf;
         TestWCF.IService s;
-
         public FormClient()
         {
             InitializeComponent();
             scf = new ChannelFactory<TestWCF.IService>(new NetTcpBinding(), "net.tcp://localhost:8000");
             s = scf.CreateChannel();
-            listBox1.Items.Add("Début communication");
+            ID =  s.AskID();
+            listBox1.Items.Add(ID);
+            if (ID == -1)
+            {
+                MessageBox.Show("capacité maximal atteinte");
+                this.Close();
+            }
+
         }
 
         private void buttonPing_Click(object sender, EventArgs e)
         {
-           s.Envoie("joueur1", textBoxPing.Text);
+           s.Envoie( ID , textBoxPing.Text);
            textBoxPing.Clear();
           
         }
@@ -38,10 +45,17 @@ namespace TestWCFClient
         private void timer1_Tick(object sender, EventArgs e)
         {
             string newline = s.Maj();
-           if (newline != listBox1.Items[listBox1.Items.Count - 1].ToString())
+            if (listBox1.Items.Count == 0)
             {
                 listBox1.Items.Add(newline);
             }
+            else {
+                if (newline != listBox1.Items[listBox1.Items.Count - 1].ToString())
+                {
+                    listBox1.Items.Add(newline);
+                }
+            }
+            
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

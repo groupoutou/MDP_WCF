@@ -11,9 +11,12 @@ namespace TestWCF
     public interface IService
     {
         [OperationContract]
-        void Envoie(string name, string msg);
+        void Envoie(int ID, string msg);
 
         [OperationContract]
         string Maj();
+
+        [OperationContract]
+        int AskID();
     }
 }

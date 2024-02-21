@@ -52,6 +52,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormServeur";
             this.Text = "Serveur";
+            this.Load += new System.EventHandler(this.FormServeur_Load);
             this.ResumeLayout(false);
 
         }
