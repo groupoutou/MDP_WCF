@@ -26,7 +26,7 @@ namespace TestWCFServer
 
             public void Envoie(int ID, string msg)
             {
-                string newline  = string.Format("joueur{0,10} : " , ID) + msg;
+                string newline  = string.Format("joueur{0} : " , ID) + msg;
                 if (ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString() != newline)
                 {
                     ihm.Historique.Items.Add(newline);
@@ -51,6 +51,7 @@ namespace TestWCFServer
                 {
                     if(Program.etat[i] == -1){
                         Program.etat[i] = 1;
+                        ihm.Historique.Items.Add(string.Format("joueur{0} a rejoint ", i));
                         return i;
                     }
                 }; 

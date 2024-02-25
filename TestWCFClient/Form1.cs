@@ -21,7 +21,6 @@ namespace TestWCFClient
             scf = new ChannelFactory<TestWCF.IService>(new NetTcpBinding(), "net.tcp://localhost:8000");
             s = scf.CreateChannel();
             ID =  s.AskID();
-            listBox1.Items.Add(ID);
             if (ID == -1)
             {
                 MessageBox.Show("capacité maximal atteinte");
