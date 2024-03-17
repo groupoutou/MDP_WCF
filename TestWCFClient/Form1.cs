@@ -21,6 +21,7 @@ namespace TestWCFClient
             scf = new ChannelFactory<TestWCF.IService>(new NetTcpBinding(), "net.tcp://localhost:8000");
             s = scf.CreateChannel();
             ID =  s.AskID();
+            mode = 1;
             if (ID == -1)
             {
                 MessageBox.Show("capacité maximal atteinte");
@@ -31,8 +32,11 @@ namespace TestWCFClient
 
         private void buttonPing_Click(object sender, EventArgs e)
         {
-           s.Envoie( ID , textBoxPing.Text);
-           textBoxPing.Clear();
+            if (mode == 2)
+            {
+                s.Envoie(ID, textBoxPing.Text);
+                textBoxPing.Clear();
+            }
           
         }
 
@@ -43,16 +47,39 @@ namespace TestWCFClient
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string newline = s.Maj();
-            if (listBox1.Items.Count == 0)
+            string newline = s.Maj(ID , mode);
+            if (mode == 2)
             {
-                listBox1.Items.Add(newline);
-            }
-            else {
-                if (newline != listBox1.Items[listBox1.Items.Count - 1].ToString())
+                if (newline == "tous les joueur ont gagnes")
+                {
+                    mode = 1;
+                }
+                if (listBox1.Items.Count == 0)
                 {
                     listBox1.Items.Add(newline);
                 }
+                else
+                {
+                    if (newline != listBox1.Items[listBox1.Items.Count - 1].ToString())
+                    {
+                        listBox1.Items.Add(newline);
+                    }
+                }
+            }
+            else if (mode==1)
+            {
+                if (newline[0] == '1')
+                {
+                    listBox1.Items.Add("Vous êtes le détenteur du mot de passe");
+                    listBox1.Items.Add(("Vous devez faire deviner :" + newline.Substring(1)));
+                    mode = 2;
+                }
+                if (newline[0] == '2')
+                {
+                    listBox1.Items.Add("Vous devez deviner le mot de passe");
+                    mode = 2;
+                }
+
             }
             
         }

@@ -14,7 +14,8 @@ namespace TestWCF
         void Envoie(int ID, string msg);
 
         [OperationContract]
-        string Maj();
+        // mode 1 : attribution des role mode 2 : jeu
+        string Maj(int ID ,int mode);
 
         [OperationContract]
         int AskID();

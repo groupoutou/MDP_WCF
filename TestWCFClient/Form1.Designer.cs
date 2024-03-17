@@ -7,6 +7,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         private int ID;
+        private int mode;
 
         /// <summary>
         /// Nettoyage des ressources utilisées.

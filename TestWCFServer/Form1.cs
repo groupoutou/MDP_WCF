@@ -15,10 +15,16 @@ namespace TestWCFServer
 {
     public partial class FormServeur : Form
     {
+        private string password;
+        private int mj;
+        private int nb_joueur;
+
         [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
         class ServiceImplementation : TestWCF.IService
         {
             FormServeur ihm;
+            private int mj = 0;
+            private string password = "calamar";
             public ServiceImplementation(FormServeur f)
             {
                 ihm = f;
@@ -33,20 +39,32 @@ namespace TestWCFServer
                 }
             }
 
-            public string Maj()
+            public string Maj(int ID , int mode)
             {
-                if (ihm.Historique.Items.Count - 1 == -1)
-                {
-                    return ihm.Historique.Items[0].ToString();
-                }
-                else
-                {
-                    return ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString();
-                }
 
+                if(mode == 2){
+                    if (ihm.Historique.Items.Count - 1 == -1)
+                    {
+                        return ihm.Historique.Items[0].ToString();
+                    }
+                    else
+                    {
+                        return ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString();
+                    }
+                }
+                if(mode == 1)
+                {
+                   if(ID == mj)
+                    {
+                        return ("1" + password);
+                    }
+                   else { return "2" ; }
+                }
+                return null;
             }
 
-            public int AskID() {
+            // ajout d'une ID au jouer
+            public int AskID() { 
                 for (int i = 0; i < Program.nb_max_joueur; i++)
                 {
                     if(Program.etat[i] == -1){
@@ -66,12 +84,13 @@ namespace TestWCFServer
             InitializeComponent();
             svh = new ServiceHost(new ServiceImplementation(this));
             svh.AddServiceEndpoint(
-                typeof(TestWCF.IService),
+                typeof(TestWCF.IService),               //Démaragge du serveur
                 new NetTcpBinding(),
                 "net.tcp://localhost:8000");
             svh.Open();
             Historique.Items.Add("Début communication");
-
+            mj = 0;
+            password = "calamar";
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)

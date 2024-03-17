@@ -20,7 +20,7 @@ namespace TestWCFClient
 
             for (int i = 0; i < nb_joueur; i++)
             {
-                Thread.Sleep(3000); // temporisation pour eviter les colision
+                Thread.Sleep(2000); // temporisation pour éviter les collision et améliorer le débogage
                 var thread = new Thread(CreateClient);
                 thread.TrySetApartmentState(ApartmentState.STA);
                 thread.Start();
