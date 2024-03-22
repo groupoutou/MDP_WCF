@@ -15,6 +15,7 @@ namespace TestWCFClient
     {
         ChannelFactory<TestWCF.IService> scf;
         TestWCF.IService s;
+        bool gagner;
         public FormClient()
         {
             InitializeComponent();
@@ -32,7 +33,7 @@ namespace TestWCFClient
 
         private void buttonPing_Click(object sender, EventArgs e)
         {
-            if (mode == 2)
+            if (mode == 2 && !gagner)
             {
                 s.Envoie(ID, textBoxPing.Text);
                 textBoxPing.Clear();
@@ -47,9 +48,14 @@ namespace TestWCFClient
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             string newline = s.Maj(ID , mode);
             if (mode == 2)
             {
+                if(newline == string.Format("joueur{0} à trouvé le mot de passe ", ID))
+                {
+                    gagner = true;
+                }
                 if (newline == "tous les joueur ont gagnes")
                 {
                     mode = 1;
@@ -72,11 +78,13 @@ namespace TestWCFClient
                 {
                     listBox1.Items.Add("Vous êtes le détenteur du mot de passe");
                     listBox1.Items.Add(("Vous devez faire deviner :" + newline.Substring(1)));
+                    gagner = false;
                     mode = 2;
                 }
                 if (newline[0] == '2')
                 {
                     listBox1.Items.Add("Vous devez deviner le mot de passe");
+                    gagner= false;
                     mode = 2;
                 }
 

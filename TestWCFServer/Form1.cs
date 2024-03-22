@@ -15,9 +15,6 @@ namespace TestWCFServer
 {
     public partial class FormServeur : Form
     {
-        private string password;
-        private int mj;
-        private int nb_joueur;
 
         [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
         class ServiceImplementation : TestWCF.IService
@@ -25,6 +22,9 @@ namespace TestWCFServer
             FormServeur ihm;
             private int mj = 0;
             private string password = "calamar";
+            private int nb_jouer;
+            private int nb_winner;
+
             public ServiceImplementation(FormServeur f)
             {
                 ihm = f;
@@ -32,10 +32,25 @@ namespace TestWCFServer
 
             public void Envoie(int ID, string msg)
             {
-                string newline  = string.Format("joueur{0} : " , ID) + msg;
-                if (ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString() != newline)
+                if (msg == password)
                 {
+                    string newline = string.Format("joueur{0} à trouvé le mot de passe ", ID);
                     ihm.Historique.Items.Add(newline);
+                    nb_winner++;
+                    if(nb_jouer-1 == nb_winner)
+                    {
+                        mj = (mj + 1 )% (nb_jouer-1);
+                        nb_winner = 0;
+                       ihm.Historique.Items.Add("tous les joueur ont gagnes");
+                    }
+                }
+                else
+                {
+                    string newline = string.Format("joueur{0} : ", ID) + msg;
+                    if (ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString() != newline)
+                    {
+                        ihm.Historique.Items.Add(newline);
+                    }
                 }
             }
 
@@ -56,6 +71,7 @@ namespace TestWCFServer
                 {
                    if(ID == mj)
                     {
+                        ihm.Historique.Items.Add(string.Format("joueur{0} est le mj ", mj));
                         return ("1" + password);
                     }
                    else { return "2" ; }
@@ -70,6 +86,7 @@ namespace TestWCFServer
                     if(Program.etat[i] == -1){
                         Program.etat[i] = 1;
                         ihm.Historique.Items.Add(string.Format("joueur{0} a rejoint ", i));
+                        nb_jouer = i+1;
                         return i;
                     }
                 }; 
@@ -89,8 +106,6 @@ namespace TestWCFServer
                 "net.tcp://localhost:8000");
             svh.Open();
             Historique.Items.Add("Début communication");
-            mj = 0;
-            password = "calamar";
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
