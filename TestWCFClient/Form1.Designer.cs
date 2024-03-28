@@ -56,6 +56,7 @@
             this.textBoxPing.Name = "textBoxPing";
             this.textBoxPing.Size = new System.Drawing.Size(148, 26);
             this.textBoxPing.TabIndex = 1;
+            this.textBoxPing.TextChanged += new System.EventHandler(this.textBoxPing_TextChanged);
             // 
             // buttonPing
             // 

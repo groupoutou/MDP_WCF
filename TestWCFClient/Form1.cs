@@ -15,7 +15,8 @@ namespace TestWCFClient
     {
         ChannelFactory<TestWCF.IService> scf;
         TestWCF.IService s;
-        bool gagner;
+        private bool gagner;
+        private  string[] banlist;
         public FormClient()
         {
             InitializeComponent();
@@ -33,12 +34,22 @@ namespace TestWCFClient
 
         private void buttonPing_Click(object sender, EventArgs e)
         {
-            if (mode == 2 && !gagner)
+            if (mode == 2 && !gagner )
             {
+                if(!gagner && Motvalide(textBoxPing.Text))
                 s.Envoie(ID, textBoxPing.Text);
                 textBoxPing.Clear();
             }
           
+        }
+
+        private bool Motvalide(string text )
+        {
+            if( text != "")
+            {
+                return true;
+            }
+            return false;
         }
 
         private void FormClient_FormClosed(object sender, FormClosedEventArgs e)
@@ -77,7 +88,10 @@ namespace TestWCFClient
                 if (newline[0] == '1')
                 {
                     listBox1.Items.Add("Vous êtes le détenteur du mot de passe");
-                    listBox1.Items.Add(("Vous devez faire deviner :" + newline.Substring(1)));
+                    int numero = newline[1] - '0';
+                    newline = newline.Substring(2);
+                    banlist = newline.Split(';') ;
+                    listBox1.Items.Add("Vous devez faire deviner :" + banlist[numero]);
                     gagner = false;
                     mode = 2;
                 }
@@ -98,6 +112,11 @@ namespace TestWCFClient
         }
 
         private void FormClient_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPing_TextChanged(object sender, EventArgs e)
         {
 
         }
