@@ -96,5 +96,10 @@ namespace TestWCFClient
         {
 
         }
+
+        private void FormClient_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -21,10 +21,21 @@ namespace TestWCFServer
         {
             FormServeur ihm;
             private int mj = 0;
-            private string password = "calamar";
+            private string password;
             private int nb_jouer;
             private int nb_winner;
 
+            public void ChangePassword()
+            {
+                var rand = new Random();
+                string filepath = "../../../synonyme.csv";
+                StreamReader sr = new StreamReader(filepath);
+                for (int i = 0; i < rand.Next(0, 45); i++)
+                {
+                    password = sr.ReadLine();
+                }
+               
+            }
             public ServiceImplementation(FormServeur f)
             {
                 ihm = f;
@@ -72,7 +83,9 @@ namespace TestWCFServer
                    if(ID == mj)
                     {
                         ihm.Historique.Items.Add(string.Format("joueur{0} est le mj ", mj));
-                        return ("1" + password);
+                        ChangePassword();
+                        var rand = new Random();
+                        return ("1" +rand.Next(0,9)+ password);
                     }
                    else { return "2" ; }
                 }

@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWCFServer", "TestWCFServer\TestWCFServer.csproj", "{3030FC9D-EFD0-4D6C-8A27-0B7DBC9BEE26}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWCFClient", "TestWCFClient\TestWCFClient.csproj", "{DEA25D24-4F69-4405-B39E-C20DB1C82160}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{12DD690F-FF69-4585-A5BD-3E12BE3994DF}"
+	ProjectSection(SolutionItems) = preProject
+		synonyme.csv = synonyme.csv
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6335B6F0-A6F0-42D1-8EFB-02F01A2333A0}
 	EndGlobalSection
 EndGlobal
