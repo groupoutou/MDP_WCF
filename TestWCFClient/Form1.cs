@@ -47,6 +47,36 @@ namespace TestWCFClient
         {
             if( text != "")
             {
+                /*
+                foreach (string str in banlist)
+                {
+                    // Parcourir les sous-chaînes de la chaîne donnée
+                    for (int i = 0; i < text.Length; i++)
+                    {
+                        for (int j = 0; j < str.Length; j++)
+                        {
+                            int k = i, l = j;
+                            // Comparer les sous-chaînes caractère par caractère
+                            while (k < text.Length && l < str.Length && text[k] == str[l])
+                            {
+                                k++;
+                                l++;
+                            }
+                            // Si la sous-chaîne est trop proche, afficher un message
+                            if (!(k - i > 2 && l - j > 2))
+                            {
+                                
+                                return true;
+                            }
+                            else
+                            {
+                                listBox1.Items.Add("le mot ressemble trop a un mot de la banlist");
+                                return false;
+                            }
+                        }
+                    }
+                }
+                */
                 return true;
             }
             return false;
@@ -92,6 +122,7 @@ namespace TestWCFClient
                     newline = newline.Substring(2);
                     banlist = newline.Split(';') ;
                     listBox1.Items.Add("Vous devez faire deviner :" + banlist[numero]);
+                    listBox1.Items.Add("Vous nous pouvez pas utiliser :" + newline);
                     gagner = false;
                     mode = 2;
                 }

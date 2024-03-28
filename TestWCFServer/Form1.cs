@@ -21,6 +21,7 @@ namespace TestWCFServer
         {
             FormServeur ihm;
             private int mj = 0;
+            private string banlist;
             private string password;
             private int nb_jouer;
             private int nb_winner;
@@ -32,8 +33,12 @@ namespace TestWCFServer
                 StreamReader sr = new StreamReader(filepath);
                 for (int i = 0; i < rand.Next(0, 45); i++)
                 {
-                    password = sr.ReadLine();
+                    banlist= sr.ReadLine();
                 }
+                int num = rand.Next(0, 9);
+                string[] tab = banlist.Split(';');
+                password = tab[num];
+                banlist = num + banlist;
                
             }
             public ServiceImplementation(FormServeur f)
@@ -84,8 +89,8 @@ namespace TestWCFServer
                     {
                         ihm.Historique.Items.Add(string.Format("joueur{0} est le mj ", mj));
                         ChangePassword();
-                        var rand = new Random();
-                        return ("1" +rand.Next(0,9)+ password);
+                       
+                        return ("1" + banlist);
                     }
                    else { return "2" ; }
                 }
