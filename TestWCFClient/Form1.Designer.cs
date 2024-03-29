@@ -47,7 +47,7 @@
             this.banw = new System.Windows.Forms.Label();
             this.role = new System.Windows.Forms.Label();
             this.danseclk = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -149,7 +149,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -204,14 +204,15 @@
             this.danseclk.Interval = 500;
             this.danseclk.Tick += new System.EventHandler(this.danseclk_Tick);
             // 
-            // button1
+            // checkBox1
             // 
-            this.button1.Location = new System.Drawing.Point(300, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 76);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(305, 222);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(156, 35);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // FormClient
             // 
@@ -239,6 +240,7 @@
             this.chatpan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sendkey)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.rolepan.ResumeLayout(false);
             this.rolepan.PerformLayout();
             this.ResumeLayout(false);
@@ -261,7 +263,7 @@
         private System.Windows.Forms.Label role;
         private System.Windows.Forms.Label banw;
         private System.Windows.Forms.Timer danseclk;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
