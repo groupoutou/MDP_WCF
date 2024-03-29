@@ -37,9 +37,8 @@ namespace TestWCFServer
                 }
                 int num = rand.Next(0, 9);
                 string[] tab = banlist.Split(';');
-                password = tab[num];
                 banlist = num + banlist;
-               
+                password = tab[num];
             }
             public ServiceImplementation(FormServeur f)
             {
@@ -124,6 +123,8 @@ namespace TestWCFServer
                 "net.tcp://localhost:8000");
             svh.Open();
             Historique.Items.Add("Début communication");
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.DoubleBuffered = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
