@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 
 namespace TestWCFClient
 {
@@ -38,6 +39,17 @@ namespace TestWCFClient
         {
             if( text != "")
             {
+                foreach(string str in banlist) {
+                    string strlow = str.ToLower();
+                    string textlow = text.ToLower();
+                    int commonCharacters = (strlow.Distinct()).Intersect(textlow.Distinct()).Count();
+                    bool isMoreThanHalf = (double)commonCharacters / strlow.Length > 0.5;
+                    if (isMoreThanHalf)
+                    {
+                        listBox1.Items.Add("Mot trop proche d'un mot banni");
+                        return false;
+                    }
+                }
                 return true;
             }
             return false;
