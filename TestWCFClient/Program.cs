@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
+
 namespace TestWCFClient
 {
     static class Program

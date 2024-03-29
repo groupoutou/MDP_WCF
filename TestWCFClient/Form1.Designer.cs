@@ -131,6 +131,7 @@
             this.chatpan.Name = "chatpan";
             this.chatpan.Size = new System.Drawing.Size(282, 465);
             this.chatpan.TabIndex = 5;
+            this.chatpan.Paint += new System.Windows.Forms.PaintEventHandler(this.chatpan_Paint);
             // 
             // Sendkey
             // 

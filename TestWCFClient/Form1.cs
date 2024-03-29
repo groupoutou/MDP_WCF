@@ -75,14 +75,14 @@ namespace TestWCFClient
                 {
                     mode = 1;
                 }
-                if(newline == "Mot trop proche d'un mot banni") { };
+                
                 if (Chat.Items.Count == 0)
                 {
                     Chat.Items.Add(newline);
                 }
                 else
                 {
-                    if (newline != Chat.Items[Chat.Items.Count - 1].ToString())
+                    if (newline != Chat.Items[Chat.Items.Count - 1].ToString() && Chat.Items[Chat.Items.Count - 1].ToString() != "Mot trop proche d'un mot banni")
                     {
                         Chat.Items.Add(newline);
                     }
@@ -136,14 +136,14 @@ namespace TestWCFClient
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (mode == 2)
+                if (mode == 2 && !gagner)
                 {
-                    if (!gagner && Motvalide(textBoxPing.Text))
+                    if (mj && Motvalide(textBoxPing.Text))
                     {
-                        s.Envoie(ID, textBoxPing.Text);
-                        textBoxPing.Clear();
+                        s.Envoie(ID, textBoxPing.Text);                      
                     }
                 }
+                textBoxPing.Clear();
             }
         }
 
@@ -159,8 +159,8 @@ namespace TestWCFClient
                 if (mj && Motvalide(textBoxPing.Text))
                 {
                     s.Envoie(ID, textBoxPing.Text);
-                    textBoxPing.Clear();
                 }
+                textBoxPing.Clear();
             }
         }
 
@@ -198,6 +198,11 @@ namespace TestWCFClient
         }
 
         private void role_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chatpan_Paint(object sender, PaintEventArgs e)
         {
 
         }
