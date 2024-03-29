@@ -119,6 +119,8 @@ namespace TestWCFServer
                 "net.tcp://localhost:8000");
             svh.Open();
             Historique.Items.Add("Début communication");
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.DoubleBuffered = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
