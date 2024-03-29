@@ -140,7 +140,11 @@ namespace TestWCFClient
                 {
                     if (mj && Motvalide(textBoxPing.Text))
                     {
-                        s.Envoie(ID, textBoxPing.Text);                      
+                        s.Envoie(ID, textBoxPing.Text);
+                    }
+                    else if (!mj)
+                    {
+                        s.Envoie(ID, textBoxPing.Text);
                     }
                 }
                 textBoxPing.Clear();
@@ -160,8 +164,12 @@ namespace TestWCFClient
                 {
                     s.Envoie(ID, textBoxPing.Text);
                 }
-                textBoxPing.Clear();
+                else if (!mj)
+                {
+                    s.Envoie(ID, textBoxPing.Text);
+                }
             }
+            textBoxPing.Clear();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -203,6 +211,11 @@ namespace TestWCFClient
         }
 
         private void chatpan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

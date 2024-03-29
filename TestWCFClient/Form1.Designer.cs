@@ -42,18 +42,16 @@
             this.Sendkey = new System.Windows.Forms.PictureBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.rolepan = new System.Windows.Forms.Panel();
             this.banw = new System.Windows.Forms.Label();
             this.role = new System.Windows.Forms.Label();
             this.danseclk = new System.Windows.Forms.Timer(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.chatpan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sendkey)).BeginInit();
-            this.panel2.SuspendLayout();
             this.rolepan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,16 +147,12 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(960, 465);
             this.panel2.TabIndex = 7;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // rolepan
             // 
@@ -204,15 +198,9 @@
             this.danseclk.Interval = 500;
             this.danseclk.Tick += new System.EventHandler(this.danseclk_Tick);
             // 
-            // checkBox1
+            // printDocument1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(305, 222);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(156, 35);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // FormClient
             // 
@@ -239,8 +227,6 @@
             this.chatpan.ResumeLayout(false);
             this.chatpan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sendkey)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.rolepan.ResumeLayout(false);
             this.rolepan.PerformLayout();
             this.ResumeLayout(false);
@@ -258,12 +244,11 @@
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox Sendkey;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Panel rolepan;
         private System.Windows.Forms.Label role;
         private System.Windows.Forms.Label banw;
         private System.Windows.Forms.Timer danseclk;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
 
