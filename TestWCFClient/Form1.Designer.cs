@@ -34,11 +34,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClient));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Menu = new System.Windows.Forms.Panel();
+            this.CHRONO = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
             this.Chat = new System.Windows.Forms.ListBox();
             this.textBoxPing = new System.Windows.Forms.TextBox();
             this.chatpan = new System.Windows.Forms.Panel();
+            this.ecrirelabel = new System.Windows.Forms.Label();
             this.Sendkey = new System.Windows.Forms.PictureBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,7 +48,7 @@
             this.banw = new System.Windows.Forms.Label();
             this.role = new System.Windows.Forms.Label();
             this.danseclk = new System.Windows.Forms.Timer(this.components);
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.timerpartie = new System.Windows.Forms.Timer(this.components);
             this.Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -64,13 +66,25 @@
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(165)))), ((int)(((byte)(194)))));
             this.Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Menu.Controls.Add(this.CHRONO);
             this.Menu.Controls.Add(this.panel1);
             this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(200, 465);
             this.Menu.TabIndex = 3;
-            this.Menu.Paint += new System.Windows.Forms.PaintEventHandler(this.Menu_Paint);
+            this.Menu.Click += new System.EventHandler(this.Menu_Click);
+            // 
+            // CHRONO
+            // 
+            this.CHRONO.AutoSize = true;
+            this.CHRONO.Font = new System.Drawing.Font("Segoe UI Variable Small", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CHRONO.Location = new System.Drawing.Point(3, 143);
+            this.CHRONO.Name = "CHRONO";
+            this.CHRONO.Size = new System.Drawing.Size(178, 64);
+            this.CHRONO.TabIndex = 1;
+            this.CHRONO.Text = "00 : 00";
+            this.CHRONO.Click += new System.EventHandler(this.CHRONO_Click);
             // 
             // panel1
             // 
@@ -80,6 +94,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(198, 140);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             // 
             // logo
             // 
@@ -100,12 +115,12 @@
             this.Chat.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.Chat.FormattingEnabled = true;
-            this.Chat.ItemHeight = 31;
+            this.Chat.ItemHeight = 20;
             this.Chat.Location = new System.Drawing.Point(0, 0);
             this.Chat.Name = "Chat";
-            this.Chat.Size = new System.Drawing.Size(280, 403);
+            this.Chat.Size = new System.Drawing.Size(280, 400);
             this.Chat.TabIndex = 0;
-            this.Chat.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.Chat.Click += new System.EventHandler(this.Chat_Click);
             // 
             // textBoxPing
             // 
@@ -113,9 +128,9 @@
             this.textBoxPing.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPing.Location = new System.Drawing.Point(3, 431);
             this.textBoxPing.Name = "textBoxPing";
-            this.textBoxPing.Size = new System.Drawing.Size(240, 37);
+            this.textBoxPing.Size = new System.Drawing.Size(240, 27);
             this.textBoxPing.TabIndex = 1;
-            this.textBoxPing.Text = "Ecrivez-ici..";
+            this.textBoxPing.Click += new System.EventHandler(this.textBoxPing_Click);
             this.textBoxPing.TextChanged += new System.EventHandler(this.textBoxPing_TextChanged);
             this.textBoxPing.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPing_KeyPress);
             // 
@@ -123,6 +138,7 @@
             // 
             this.chatpan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(109)))), ((int)(((byte)(229)))));
             this.chatpan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.chatpan.Controls.Add(this.ecrirelabel);
             this.chatpan.Controls.Add(this.Sendkey);
             this.chatpan.Controls.Add(this.textBoxPing);
             this.chatpan.Controls.Add(this.Chat);
@@ -131,7 +147,18 @@
             this.chatpan.Name = "chatpan";
             this.chatpan.Size = new System.Drawing.Size(282, 465);
             this.chatpan.TabIndex = 5;
-            this.chatpan.Paint += new System.Windows.Forms.PaintEventHandler(this.chatpan_Paint);
+            this.chatpan.Click += new System.EventHandler(this.chatpan_Click);
+            // 
+            // ecrirelabel
+            // 
+            this.ecrirelabel.AutoSize = true;
+            this.ecrirelabel.BackColor = System.Drawing.Color.White;
+            this.ecrirelabel.Location = new System.Drawing.Point(12, 434);
+            this.ecrirelabel.Name = "ecrirelabel";
+            this.ecrirelabel.Size = new System.Drawing.Size(92, 20);
+            this.ecrirelabel.TabIndex = 2;
+            this.ecrirelabel.Text = "Ecrivez-ici...";
+            this.ecrirelabel.Click += new System.EventHandler(this.ecrirelabel_Click);
             // 
             // Sendkey
             // 
@@ -152,7 +179,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(960, 465);
             this.panel2.TabIndex = 7;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
             // rolepan
             // 
@@ -165,15 +192,16 @@
             this.rolepan.Name = "rolepan";
             this.rolepan.Size = new System.Drawing.Size(478, 100);
             this.rolepan.TabIndex = 6;
+            this.rolepan.Click += new System.EventHandler(this.rolepan_Click);
             // 
             // banw
             // 
             this.banw.AutoSize = true;
             this.banw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.banw.Font = new System.Drawing.Font("Segoe UI Variable Small", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.banw.Location = new System.Drawing.Point(0, 71);
+            this.banw.Location = new System.Drawing.Point(0, 79);
             this.banw.Name = "banw";
-            this.banw.Size = new System.Drawing.Size(142, 27);
+            this.banw.Size = new System.Drawing.Size(100, 19);
             this.banw.TabIndex = 1;
             this.banw.Text = "Mots bannis :";
             this.banw.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -186,7 +214,7 @@
             this.role.Font = new System.Drawing.Font("Segoe UI Variable Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.role.Location = new System.Drawing.Point(0, 0);
             this.role.Name = "role";
-            this.role.Size = new System.Drawing.Size(116, 48);
+            this.role.Size = new System.Drawing.Size(78, 32);
             this.role.TabIndex = 0;
             this.role.Text = "Rôle :";
             this.role.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -198,9 +226,11 @@
             this.danseclk.Interval = 500;
             this.danseclk.Tick += new System.EventHandler(this.danseclk_Tick);
             // 
-            // printDocument1
+            // timerpartie
             // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            this.timerpartie.Enabled = true;
+            this.timerpartie.Interval = 1000;
+            this.timerpartie.Tick += new System.EventHandler(this.timerpartie_Tick);
             // 
             // FormClient
             // 
@@ -220,8 +250,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Le Jeu du Mot de Passe";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClient_FormClosed);
-            this.Load += new System.EventHandler(this.FormClient_Load);
+            this.Click += new System.EventHandler(this.FormClient_Click);
             this.Menu.ResumeLayout(false);
+            this.Menu.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.chatpan.ResumeLayout(false);
@@ -248,7 +279,9 @@
         private System.Windows.Forms.Label role;
         private System.Windows.Forms.Label banw;
         private System.Windows.Forms.Timer danseclk;
-        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Label ecrirelabel;
+        private System.Windows.Forms.Label CHRONO;
+        private System.Windows.Forms.Timer timerpartie;
     }
 }
 

@@ -19,6 +19,7 @@ namespace TestWCFClient
         private bool gagner;
         private bool mj;
         private  string[] banlist;
+        private int compteur;
         public FormClient()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace TestWCFClient
             s = scf.CreateChannel();
             ID =  s.AskID();
             mode = 1;
+            compteur = 0;
             if (ID == -1)
             {
                 MessageBox.Show("capacité maximal atteinte");
@@ -117,20 +119,9 @@ namespace TestWCFClient
             
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+  
 
-        }
-
-        private void FormClient_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPing_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void textBoxPing_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -151,10 +142,6 @@ namespace TestWCFClient
             }
         }
 
-        private void Menu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void Sendkey_Click(object sender, EventArgs e)
         {
@@ -170,12 +157,9 @@ namespace TestWCFClient
                 }
             }
             textBoxPing.Clear();
+            ecrirelabel.Show();
         }
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-
-        }
 
         private void logo_Click(object sender, EventArgs e)
         {
@@ -200,24 +184,105 @@ namespace TestWCFClient
             }
         }
 
-        private void banw_Click(object sender, EventArgs e)
-        {
 
+        private void ecrirelabel_Click(object sender, EventArgs e)
+        {
+            ecrirelabel.Hide();
+        }
+
+        private void textBoxPing_Click(object sender, EventArgs e)
+        {
+            ecrirelabel.Hide();
+        }
+        private void textBoxPing_TextChanged(object sender, EventArgs e)
+        {
+            ecrirelabel.Hide();
+        }
+
+        private void chatpan_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void Chat_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void rolepan_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
         }
 
         private void role_Click(object sender, EventArgs e)
         {
-
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
         }
 
-        private void chatpan_Paint(object sender, PaintEventArgs e)
+        private void banw_Click(object sender, EventArgs e)
         {
-
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void Menu_Click(object sender, EventArgs e)
         {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
 
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void FormClient_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void CHRONO_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void timerpartie_Tick(object sender, EventArgs e)
+        {
+            compteur++;
+            CHRONO.Text = string.Format("{0:00} : {1:00}", compteur / 60, compteur % 60);
         }
     }
 }
