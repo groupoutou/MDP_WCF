@@ -19,7 +19,7 @@ namespace TestWCFClient
         private bool gagner;
         private bool mj;
         private  string[] banlist;
-        private int compteur;
+        private int compteur, score;
         public FormClient()
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace TestWCFClient
             ID =  s.AskID();
             mode = 1;
             compteur = 0;
+            score = 0;
             if (ID == -1)
             {
                 MessageBox.Show("capacité maximal atteinte");
@@ -35,6 +36,7 @@ namespace TestWCFClient
             }
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;// affiche la barre des tâches en plein écran
             this.DoubleBuffered = true;
+            timerpartie.Start();
         }
 
 
@@ -72,9 +74,21 @@ namespace TestWCFClient
                 if(newline == string.Format("joueur{0} à trouvé le mot de passe ", ID))
                 {
                     gagner = true;
+                    if(timerpartie.Enabled==true)
+                    {
+                        timerpartie.Stop();
+                        score += (int)(10800 * (1 / ((double)compteur + 1)));
+                        Scorelabel.Text = "Score: " + score + " pts";
+                    }
                 }
                 if (newline == "tous les joueur ont gagnes")
                 {
+                    if (timerpartie.Enabled == true)
+                    {
+                        timerpartie.Stop();
+                        score += (int)(10800 * (1 / ((double)compteur + 1)));
+                        Scorelabel.Text = "Score: " + score + " pts";
+                    }
                     mode = 1;
                 }
                 
@@ -103,6 +117,8 @@ namespace TestWCFClient
                     role.Text = "Vous devez faire deviner: " + banlist[numero];
                     mj = true;
                     gagner = false;
+                    compteur = 0;
+                    timerpartie.Start();
                     mode = 2;
                 }
                 if (newline[0] == '2')
@@ -112,6 +128,8 @@ namespace TestWCFClient
                     banw.AutoSize = true;
                     gagner = false;
                     mj = false;
+                    compteur = 0;
+                    timerpartie.Start();
                     mode = 2;
                 }
 
@@ -272,6 +290,14 @@ namespace TestWCFClient
         }
 
         private void CHRONO_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void Scorelabel_Click(object sender, EventArgs e)
         {
             if (textBoxPing.Text.Length == 0)
             {

@@ -34,6 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClient));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Menu = new System.Windows.Forms.Panel();
+            this.Scorelabel = new System.Windows.Forms.Label();
             this.CHRONO = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -66,6 +67,7 @@
             // 
             this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(165)))), ((int)(((byte)(194)))));
             this.Menu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Menu.Controls.Add(this.Scorelabel);
             this.Menu.Controls.Add(this.CHRONO);
             this.Menu.Controls.Add(this.panel1);
             this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -74,6 +76,17 @@
             this.Menu.Size = new System.Drawing.Size(200, 465);
             this.Menu.TabIndex = 3;
             this.Menu.Click += new System.EventHandler(this.Menu_Click);
+            // 
+            // Scorelabel
+            // 
+            this.Scorelabel.AutoSize = true;
+            this.Scorelabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Scorelabel.Location = new System.Drawing.Point(15, 224);
+            this.Scorelabel.Name = "Scorelabel";
+            this.Scorelabel.Size = new System.Drawing.Size(87, 28);
+            this.Scorelabel.TabIndex = 2;
+            this.Scorelabel.Text = "Score : ";
+            this.Scorelabel.Click += new System.EventHandler(this.Scorelabel_Click);
             // 
             // CHRONO
             // 
@@ -151,9 +164,10 @@
             // 
             // ecrirelabel
             // 
+            this.ecrirelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ecrirelabel.AutoSize = true;
             this.ecrirelabel.BackColor = System.Drawing.Color.White;
-            this.ecrirelabel.Location = new System.Drawing.Point(12, 434);
+            this.ecrirelabel.Location = new System.Drawing.Point(141, 435);
             this.ecrirelabel.Name = "ecrirelabel";
             this.ecrirelabel.Size = new System.Drawing.Size(92, 20);
             this.ecrirelabel.TabIndex = 2;
@@ -228,7 +242,6 @@
             // 
             // timerpartie
             // 
-            this.timerpartie.Enabled = true;
             this.timerpartie.Interval = 1000;
             this.timerpartie.Tick += new System.EventHandler(this.timerpartie_Tick);
             // 
@@ -282,6 +295,7 @@
         private System.Windows.Forms.Label ecrirelabel;
         private System.Windows.Forms.Label CHRONO;
         private System.Windows.Forms.Timer timerpartie;
+        private System.Windows.Forms.Label Scorelabel;
     }
 }
 
