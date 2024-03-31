@@ -96,7 +96,7 @@ namespace TestWCFServer
                 return null;
             }
 
-            // ajout d'une ID au jouer
+            // ajout d'une ID au joueur
             public int AskID() { 
                 for (int i = 0; i < Program.nb_max_joueur; i++)
                 {
