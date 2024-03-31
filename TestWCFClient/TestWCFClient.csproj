@@ -100,6 +100,27 @@
   <ItemGroup>
     <None Include="Resources\enter-key-one-svgrepo-com.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-round-1342-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-round-1342-svgrepo-com %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-round-1342-svgrepo-com %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-round-1342-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crown-user-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message-bubble-2-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\message-svgrepo-com.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

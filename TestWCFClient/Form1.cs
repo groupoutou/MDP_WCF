@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -37,6 +38,15 @@ namespace TestWCFClient
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;// affiche la barre des tâches en plein écran
             this.DoubleBuffered = true;
             timerpartie.Start();
+            CROWNM.Hide();
+            CROWNV.Hide();
+            CROWNR.Hide();
+            txtm.Hide();
+            txtv.Hide();
+            txtr.Hide();
+            DIAGM.Hide();
+            DIAGV.Hide();
+            DIAGR.Hide();
         }
 
 
@@ -83,6 +93,9 @@ namespace TestWCFClient
                 }
                 if (newline == "tous les joueur ont gagnes")
                 {
+                    CROWNM.Show();
+                    CROWNV.Show();
+                    CROWNR.Show();
                     if (timerpartie.Enabled == true)
                     {
                         timerpartie.Stop();
@@ -106,6 +119,10 @@ namespace TestWCFClient
             }
             else if (mode==1)
             {
+                CROWNM.Hide();
+                CROWNV.Hide();
+                CROWNR.Hide();
+
                 if (newline[0] == '1')
                 {
                     Chat.Items.Add("Vous êtes le détenteur du mot de passe");
@@ -124,7 +141,7 @@ namespace TestWCFClient
                 if (newline[0] == '2')
                 {
                     role.Text = "Vous devez deviner le mot de passe";
-                    banw.Text = "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪"; //tkt
+                    banw.Text = "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪"; //tkt
                     banw.AutoSize = true;
                     gagner = false;
                     mj = false;
@@ -192,13 +209,13 @@ namespace TestWCFClient
 
         private void danseclk_Tick(object sender, EventArgs e) //TKT
         {
-            if (banw.Text == "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪")
+            if (banw.Text == "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪")
             {
-                banw.Text = "   └|∵|┐♪   ♪┌|∵⁠|┘♪   └|∵|┐♪    ♪┌|∵⁠|┘♪";
+                banw.Text = "   └|∵|┐♪   ♪┌|∵⁠|┘♪   └|∵|┐♪    ♪┌|∵⁠|┘♪   └|∵|┐♪    ♪┌|∵⁠|┘♪";
             }
-            else if (banw.Text == "   └|∵|┐♪   ♪┌|∵⁠|┘♪   └|∵|┐♪    ♪┌|∵⁠|┘♪")
+            else if (banw.Text == "   └|∵|┐♪   ♪┌|∵⁠|┘♪   └|∵|┐♪    ♪┌|∵⁠|┘♪   └|∵|┐♪    ♪┌|∵⁠|┘♪")
             {
-                banw.Text = "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪";
+                banw.Text = "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪";
             }
         }
 
@@ -298,6 +315,94 @@ namespace TestWCFClient
         }
 
         private void Scorelabel_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void JMAG_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void CROWNM_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void JROUGE_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void JVERT_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void DIAGP_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void DIAGV_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void DIAGR_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void txtm_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void txtr_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void txtv_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void DIAGM_Click(object sender, EventArgs e)
         {
             if (textBoxPing.Text.Length == 0)
             {

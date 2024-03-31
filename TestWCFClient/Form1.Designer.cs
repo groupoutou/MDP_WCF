@@ -45,16 +45,38 @@
             this.Sendkey = new System.Windows.Forms.PictureBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DIAGR = new System.Windows.Forms.PictureBox();
+            this.DIAGV = new System.Windows.Forms.PictureBox();
+            this.DIAGM = new System.Windows.Forms.PictureBox();
+            this.CROWNR = new System.Windows.Forms.PictureBox();
+            this.CROWNV = new System.Windows.Forms.PictureBox();
+            this.CROWNM = new System.Windows.Forms.PictureBox();
+            this.JMAG = new System.Windows.Forms.PictureBox();
+            this.JROUGE = new System.Windows.Forms.PictureBox();
+            this.JVERT = new System.Windows.Forms.PictureBox();
             this.rolepan = new System.Windows.Forms.Panel();
             this.banw = new System.Windows.Forms.Label();
             this.role = new System.Windows.Forms.Label();
             this.danseclk = new System.Windows.Forms.Timer(this.components);
             this.timerpartie = new System.Windows.Forms.Timer(this.components);
+            this.txtm = new System.Windows.Forms.Label();
+            this.txtv = new System.Windows.Forms.Label();
+            this.txtr = new System.Windows.Forms.Label();
             this.Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.chatpan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sendkey)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DIAGR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIAGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIAGM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CROWNR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CROWNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CROWNM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JMAG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JROUGE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JVERT)).BeginInit();
             this.rolepan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,9 +105,9 @@
             this.Scorelabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Scorelabel.Location = new System.Drawing.Point(15, 224);
             this.Scorelabel.Name = "Scorelabel";
-            this.Scorelabel.Size = new System.Drawing.Size(87, 28);
+            this.Scorelabel.Size = new System.Drawing.Size(99, 28);
             this.Scorelabel.TabIndex = 2;
-            this.Scorelabel.Text = "Score : ";
+            this.Scorelabel.Text = "Score : 0";
             this.Scorelabel.Click += new System.EventHandler(this.Scorelabel_Click);
             // 
             // CHRONO
@@ -188,12 +210,120 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtr);
+            this.panel2.Controls.Add(this.txtv);
+            this.panel2.Controls.Add(this.txtm);
+            this.panel2.Controls.Add(this.DIAGR);
+            this.panel2.Controls.Add(this.DIAGV);
+            this.panel2.Controls.Add(this.DIAGM);
+            this.panel2.Controls.Add(this.CROWNR);
+            this.panel2.Controls.Add(this.CROWNV);
+            this.panel2.Controls.Add(this.CROWNM);
+            this.panel2.Controls.Add(this.JMAG);
+            this.panel2.Controls.Add(this.JROUGE);
+            this.panel2.Controls.Add(this.JVERT);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(960, 465);
             this.panel2.TabIndex = 7;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
+            // 
+            // DIAGR
+            // 
+            this.DIAGR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DIAGR.Image = global::TestWCFClient.Properties.Resources.message_svgrepo_com;
+            this.DIAGR.Location = new System.Drawing.Point(514, 225);
+            this.DIAGR.Name = "DIAGR";
+            this.DIAGR.Size = new System.Drawing.Size(99, 91);
+            this.DIAGR.TabIndex = 8;
+            this.DIAGR.TabStop = false;
+            this.DIAGR.Click += new System.EventHandler(this.DIAGR_Click);
+            // 
+            // DIAGV
+            // 
+            this.DIAGV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DIAGV.Image = global::TestWCFClient.Properties.Resources.message_svgrepo_com;
+            this.DIAGV.Location = new System.Drawing.Point(246, 224);
+            this.DIAGV.Name = "DIAGV";
+            this.DIAGV.Size = new System.Drawing.Size(99, 91);
+            this.DIAGV.TabIndex = 7;
+            this.DIAGV.TabStop = false;
+            this.DIAGV.Click += new System.EventHandler(this.DIAGV_Click);
+            // 
+            // DIAGM
+            // 
+            this.DIAGM.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DIAGM.Image = global::TestWCFClient.Properties.Resources.message_bubble_2_svgrepo_com;
+            this.DIAGM.Location = new System.Drawing.Point(493, 102);
+            this.DIAGM.Name = "DIAGM";
+            this.DIAGM.Size = new System.Drawing.Size(99, 91);
+            this.DIAGM.TabIndex = 6;
+            this.DIAGM.TabStop = false;
+            this.DIAGM.Click += new System.EventHandler(this.DIAGM_Click);
+            // 
+            // CROWNR
+            // 
+            this.CROWNR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CROWNR.Image = global::TestWCFClient.Properties.Resources.crown_user_svgrepo_com;
+            this.CROWNR.Location = new System.Drawing.Point(538, 322);
+            this.CROWNR.Name = "CROWNR";
+            this.CROWNR.Size = new System.Drawing.Size(44, 38);
+            this.CROWNR.TabIndex = 5;
+            this.CROWNR.TabStop = false;
+            // 
+            // CROWNV
+            // 
+            this.CROWNV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CROWNV.Image = global::TestWCFClient.Properties.Resources.crown_user_svgrepo_com;
+            this.CROWNV.Location = new System.Drawing.Point(271, 322);
+            this.CROWNV.Name = "CROWNV";
+            this.CROWNV.Size = new System.Drawing.Size(44, 38);
+            this.CROWNV.TabIndex = 4;
+            this.CROWNV.TabStop = false;
+            // 
+            // CROWNM
+            // 
+            this.CROWNM.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CROWNM.Image = global::TestWCFClient.Properties.Resources.crown_user_svgrepo_com;
+            this.CROWNM.Location = new System.Drawing.Point(415, 102);
+            this.CROWNM.Name = "CROWNM";
+            this.CROWNM.Size = new System.Drawing.Size(44, 38);
+            this.CROWNM.TabIndex = 3;
+            this.CROWNM.TabStop = false;
+            this.CROWNM.Click += new System.EventHandler(this.CROWNM_Click);
+            // 
+            // JMAG
+            // 
+            this.JMAG.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.JMAG.Image = global::TestWCFClient.Properties.Resources.profile_round_1342_svgrepo_com;
+            this.JMAG.Location = new System.Drawing.Point(388, 133);
+            this.JMAG.Name = "JMAG";
+            this.JMAG.Size = new System.Drawing.Size(99, 91);
+            this.JMAG.TabIndex = 2;
+            this.JMAG.TabStop = false;
+            this.JMAG.Click += new System.EventHandler(this.JMAG_Click);
+            // 
+            // JROUGE
+            // 
+            this.JROUGE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.JROUGE.Image = global::TestWCFClient.Properties.Resources.profile_round_1342_svgrepo_com__2_;
+            this.JROUGE.Location = new System.Drawing.Point(514, 353);
+            this.JROUGE.Name = "JROUGE";
+            this.JROUGE.Size = new System.Drawing.Size(99, 99);
+            this.JROUGE.TabIndex = 1;
+            this.JROUGE.TabStop = false;
+            this.JROUGE.Click += new System.EventHandler(this.JROUGE_Click);
+            // 
+            // JVERT
+            // 
+            this.JVERT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.JVERT.Image = global::TestWCFClient.Properties.Resources.profile_round_1342_svgrepo_com__1_1;
+            this.JVERT.Location = new System.Drawing.Point(246, 353);
+            this.JVERT.Name = "JVERT";
+            this.JVERT.Size = new System.Drawing.Size(99, 99);
+            this.JVERT.TabIndex = 0;
+            this.JVERT.TabStop = false;
             // 
             // rolepan
             // 
@@ -210,10 +340,10 @@
             // 
             // banw
             // 
+            this.banw.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.banw.AutoSize = true;
-            this.banw.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.banw.Font = new System.Drawing.Font("Segoe UI Variable Small", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.banw.Location = new System.Drawing.Point(0, 79);
+            this.banw.Location = new System.Drawing.Point(2, 56);
             this.banw.Name = "banw";
             this.banw.Size = new System.Drawing.Size(100, 19);
             this.banw.TabIndex = 1;
@@ -223,8 +353,8 @@
             // 
             // role
             // 
+            this.role.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.role.AutoSize = true;
-            this.role.Dock = System.Windows.Forms.DockStyle.Top;
             this.role.Font = new System.Drawing.Font("Segoe UI Variable Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.role.Location = new System.Drawing.Point(0, 0);
             this.role.Name = "role";
@@ -244,6 +374,39 @@
             // 
             this.timerpartie.Interval = 1000;
             this.timerpartie.Tick += new System.EventHandler(this.timerpartie_Tick);
+            // 
+            // txtm
+            // 
+            this.txtm.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtm.AutoSize = true;
+            this.txtm.Location = new System.Drawing.Point(510, 133);
+            this.txtm.Name = "txtm";
+            this.txtm.Size = new System.Drawing.Size(21, 20);
+            this.txtm.TabIndex = 9;
+            this.txtm.Text = "...";
+            this.txtm.Click += new System.EventHandler(this.txtm_Click);
+            // 
+            // txtv
+            // 
+            this.txtv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtv.AutoSize = true;
+            this.txtv.Location = new System.Drawing.Point(267, 259);
+            this.txtv.Name = "txtv";
+            this.txtv.Size = new System.Drawing.Size(21, 20);
+            this.txtv.TabIndex = 10;
+            this.txtv.Text = "...";
+            this.txtv.Click += new System.EventHandler(this.txtv_Click);
+            // 
+            // txtr
+            // 
+            this.txtr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtr.AutoSize = true;
+            this.txtr.Location = new System.Drawing.Point(534, 259);
+            this.txtr.Name = "txtr";
+            this.txtr.Size = new System.Drawing.Size(21, 20);
+            this.txtr.TabIndex = 11;
+            this.txtr.Text = "...";
+            this.txtr.Click += new System.EventHandler(this.txtr_Click);
             // 
             // FormClient
             // 
@@ -271,6 +434,17 @@
             this.chatpan.ResumeLayout(false);
             this.chatpan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Sendkey)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DIAGR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIAGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DIAGM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CROWNR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CROWNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CROWNM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JMAG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JROUGE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JVERT)).EndInit();
             this.rolepan.ResumeLayout(false);
             this.rolepan.PerformLayout();
             this.ResumeLayout(false);
@@ -296,6 +470,18 @@
         private System.Windows.Forms.Label CHRONO;
         private System.Windows.Forms.Timer timerpartie;
         private System.Windows.Forms.Label Scorelabel;
+        private System.Windows.Forms.PictureBox JVERT;
+        private System.Windows.Forms.PictureBox JROUGE;
+        private System.Windows.Forms.PictureBox JMAG;
+        private System.Windows.Forms.PictureBox CROWNM;
+        private System.Windows.Forms.PictureBox CROWNR;
+        private System.Windows.Forms.PictureBox CROWNV;
+        private System.Windows.Forms.PictureBox DIAGM;
+        private System.Windows.Forms.PictureBox DIAGV;
+        private System.Windows.Forms.PictureBox DIAGR;
+        private System.Windows.Forms.Label txtr;
+        private System.Windows.Forms.Label txtv;
+        private System.Windows.Forms.Label txtm;
     }
 }
 

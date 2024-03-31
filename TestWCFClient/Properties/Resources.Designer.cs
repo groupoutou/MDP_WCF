@@ -63,9 +63,39 @@ namespace TestWCFClient.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap crown_user_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("crown-user-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enter_key_one_svgrepo_com {
             get {
                 object obj = ResourceManager.GetObject("enter-key-one-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap message_bubble_2_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("message-bubble-2-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap message_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("message-svgrepo-com", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +116,46 @@ namespace TestWCFClient.Properties {
         internal static System.Drawing.Bitmap password_svgrepo_com200 {
             get {
                 object obj = ResourceManager.GetObject("password-svgrepo-com200", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_round_1342_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("profile-round-1342-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_round_1342_svgrepo_com__1_ {
+            get {
+                object obj = ResourceManager.GetObject("profile-round-1342-svgrepo-com (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_round_1342_svgrepo_com__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("profile-round-1342-svgrepo-com (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profile_round_1342_svgrepo_com__2_ {
+            get {
+                object obj = ResourceManager.GetObject("profile-round-1342-svgrepo-com (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
