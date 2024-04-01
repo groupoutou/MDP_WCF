@@ -47,7 +47,7 @@ namespace TestWCFServer
 
             public void Envoie(int ID, string msg)
             {
-                if (msg == password)
+                if (msg.ToLower() == password.ToLower())
                 {
                     string newline = string.Format("joueur{0} à trouvé le mot de passe ", ID);
                     ihm.Historique.Items.Add(newline);

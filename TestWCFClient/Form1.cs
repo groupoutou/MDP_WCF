@@ -50,7 +50,7 @@ namespace TestWCFClient
         }
 
 
-        private bool Motvalide(string text )
+        private string Motvalide(string text )
         {
             if( text != "")
             {
@@ -62,12 +62,13 @@ namespace TestWCFClient
                     if (isMoreThanHalf)
                     {
                         Chat.Items.Add("Mot trop proche d'un mot banni");
-                        return false;
+                        return "Mot trop proche d'un mot banni";
+                         
                     }
                 }
-                return true;
+                return text;
             }
-            return false;
+            return text;
         }
 
         private void FormClient_FormClosed(object sender, FormClosedEventArgs e)
@@ -111,10 +112,13 @@ namespace TestWCFClient
                 }
                 else
                 {
-                    if (newline != Chat.Items[Chat.Items.Count - 1].ToString() && Chat.Items[Chat.Items.Count - 1].ToString() != "Mot trop proche d'un mot banni")
-                    {
-                        Chat.Items.Add(newline);
+                    if (newline != Chat.Items[Chat.Items.Count - 1].ToString()) { // ligne nouvelle
+                       if ( !newline.Contains("Mot trop proche d'un mot banni"))
+                        {
+                            Chat.Items.Add(newline);
+                        }
                     }
+
                 }
             }
             else if (mode==1)
@@ -164,9 +168,10 @@ namespace TestWCFClient
             {
                 if (mode == 2 && !gagner)
                 {
-                    if (mj && Motvalide(textBoxPing.Text))
+                    if (mj)
                     {
-                        s.Envoie(ID, textBoxPing.Text);
+                        string newline = Motvalide(textBoxPing.Text);
+                        s.Envoie(ID, newline);
                     }
                     else if (!mj)
                     {
@@ -182,9 +187,10 @@ namespace TestWCFClient
         {
             if (mode == 2 && !gagner)
             {
-                if (mj && Motvalide(textBoxPing.Text))
+                if (mj)
                 {
-                    s.Envoie(ID, textBoxPing.Text);
+                    string newline = Motvalide(textBoxPing.Text);
+                    s.Envoie(ID, newline);
                 }
                 else if (!mj)
                 {
@@ -408,6 +414,16 @@ namespace TestWCFClient
             {
                 ecrirelabel.Show();
             }
+        }
+
+        private void rolepan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Chat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void timerpartie_Tick(object sender, EventArgs e)
