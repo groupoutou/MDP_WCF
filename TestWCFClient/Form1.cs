@@ -28,9 +28,10 @@ namespace TestWCFClient
             scf = new ChannelFactory<TestWCF.IService>(new NetTcpBinding(), "net.tcp://localhost:8000");
             s = scf.CreateChannel();
             ID =  s.AskID();
-            mode = 1;
+            mode = 3;
             compteur = 0;
             score = 0;
+
             if (ID == -1)
             {
                 MessageBox.Show("capacité maximal atteinte");
@@ -111,31 +112,34 @@ namespace TestWCFClient
                         }
                     }
                 }
-                if (newline == "tous les joueur ont gagnes")
+                if (newline == "tous les joueur ont gagnés")
                 {
                     CROWNM.Show();
                     CROWNV.Show();
                     CROWNR.Show();
+
                     if (timerpartie.Enabled == true)
                     {
                         timerpartie.Stop();
                         score += (int)(10800 * (1 / ((double)compteur + 1)));
                         Scorelabel.Text = "Score: " + score + " pts";
                     }
-                    mode = 1;
+                    startlabel.Show();
+                    mode = 3;
                 }
-                
+
                 if (Chat.Items.Count == 0)
                 {
                     Chat.Items.Add(newline);
                 }
                 else
                 {
-                    if (newline != Chat.Items[Chat.Items.Count - 1].ToString()) { // ligne nouvelle
-                       if ( !newline.Contains("Mot trop proche d'un mot banni"))
+                    if (newline != Chat.Items[Chat.Items.Count - 1].ToString())
+                    { // ligne nouvelle
+                        if (!newline.Contains("Mot trop proche d'un mot banni"))
                         {
-                
-                          if (newline.Length > 10)
+
+                            if (newline.Length > 10)
                             {
                                 txtm.Hide();
                                 txtv.Hide();
@@ -143,7 +147,7 @@ namespace TestWCFClient
                                 DIAGM.Hide();
                                 DIAGV.Hide();
                                 DIAGR.Hide();
-                                string bubble = newline.Substring(10, newline.IndexOf(' ', 10)-10);
+                                string bubble = newline.Substring(10, newline.IndexOf(' ', 10) - 10);
                                 if (newline[6] == '0')
                                 {
                                     txtm.Text = bubble;
@@ -169,11 +173,12 @@ namespace TestWCFClient
 
                 }
             }
-            else if (mode==1)
+            else if (mode == 1)
             {
                 CROWNM.Hide();
                 CROWNV.Hide();
                 CROWNR.Hide();
+
 
                 if (newline[0] == '1')
                 {
@@ -182,7 +187,7 @@ namespace TestWCFClient
                     newline = newline.Substring(2);
                     banw.Text = "Mots bannis: \n" + newline;
                     banw.AutoSize = true;
-                    banlist = newline.Split(';') ;
+                    banlist = newline.Split(';');
                     role.Text = "Vous devez faire deviner: " + banlist[numero];
                     mj = true;
                     gagner = false;
@@ -202,6 +207,13 @@ namespace TestWCFClient
                     mode = 2;
                 }
 
+            }
+            else if (mode == 3)
+            {
+                startlabel.Show();
+                Thread.Sleep(2000);
+                startlabel.Hide();
+                mode = 1;
             }
             
         }
@@ -233,17 +245,17 @@ namespace TestWCFClient
         {
             if (mode == 2 && !gagner)
             {
-                if (mj)
+                if (mode == 2 && !gagner)
                 {
-                    string newline = Motvalide(textBoxPing.Text);
-                  
-                    s.Envoie(ID, newline);
-                }
-                else 
-                {
+                    string newline = textBoxPing.Text;
+                    if (mj)
+                    {
+                        newline = Motvalide(textBoxPing.Text);
 
-                    s.Envoie(ID, textBoxPing.Text);
+                    }
+                    s.Envoie(ID, newline, horodatage);
                 }
+                textBoxPing.Clear();
             }
             textBoxPing.Clear();
             ecrirelabel.Show();
@@ -467,6 +479,30 @@ namespace TestWCFClient
         private void Chat_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void j1r_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void j2v_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
+        }
+
+        private void j0m_Click(object sender, EventArgs e)
+        {
+            if (textBoxPing.Text.Length == 0)
+            {
+                ecrirelabel.Show();
+            }
         }
 
         private void timerpartie_Tick(object sender, EventArgs e)

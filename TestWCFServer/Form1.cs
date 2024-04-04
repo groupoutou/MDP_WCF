@@ -57,13 +57,13 @@ namespace TestWCFServer
                     {
                         mj = (mj + 1 )% (nb_jouer-1);
                         nb_winner = 0;
-                       ihm.Historique.Items.Add("tous les joueur ont gagnes");
+                       ihm.Historique.Items.Add("tous les joueur ont gagnés");
                     }
                 }
                 else
                 {        
                     string newline = string.Format("joueur{0} : ", ID) + msg;
-                    int k = newline.Length;
+                    int k = msg.Length;
                     for (int i = 0; i < 41 - (2 * k); i++)
                     {
                         newline += " ";
@@ -91,7 +91,6 @@ namespace TestWCFServer
                 }
                 if(mode == 1)
                 {
-                    Thread.Sleep(2000);
                    if(ID == mj)
                     {
                         ihm.Historique.Items.Add(string.Format("joueur {0} est le mj ", mj));

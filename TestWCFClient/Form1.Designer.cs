@@ -45,6 +45,7 @@
             this.Sendkey = new System.Windows.Forms.PictureBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.startlabel = new System.Windows.Forms.Label();
             this.txtr = new System.Windows.Forms.Label();
             this.txtv = new System.Windows.Forms.Label();
             this.txtm = new System.Windows.Forms.Label();
@@ -62,6 +63,9 @@
             this.role = new System.Windows.Forms.Label();
             this.danseclk = new System.Windows.Forms.Timer(this.components);
             this.timerpartie = new System.Windows.Forms.Timer(this.components);
+            this.j0m = new System.Windows.Forms.Label();
+            this.j2v = new System.Windows.Forms.Label();
+            this.j1r = new System.Windows.Forms.Label();
             this.Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -105,7 +109,7 @@
             this.Scorelabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Scorelabel.Location = new System.Drawing.Point(15, 224);
             this.Scorelabel.Name = "Scorelabel";
-            this.Scorelabel.Size = new System.Drawing.Size(150, 43);
+            this.Scorelabel.Size = new System.Drawing.Size(99, 28);
             this.Scorelabel.TabIndex = 2;
             this.Scorelabel.Text = "Score : 0";
             this.Scorelabel.Click += new System.EventHandler(this.Scorelabel_Click);
@@ -116,7 +120,7 @@
             this.CHRONO.Font = new System.Drawing.Font("Segoe UI Variable Small", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CHRONO.Location = new System.Drawing.Point(3, 143);
             this.CHRONO.Name = "CHRONO";
-            this.CHRONO.Size = new System.Drawing.Size(268, 96);
+            this.CHRONO.Size = new System.Drawing.Size(178, 64);
             this.CHRONO.TabIndex = 1;
             this.CHRONO.Text = "00 : 00";
             this.CHRONO.Click += new System.EventHandler(this.CHRONO_Click);
@@ -144,19 +148,18 @@
             // 
             // Chat
             // 
+            this.Chat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.Chat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(109)))), ((int)(((byte)(229)))));
             this.Chat.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Chat.Dock = System.Windows.Forms.DockStyle.Top;
             this.Chat.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.Chat.FormattingEnabled = true;
-            this.Chat.ItemHeight = 31;
+            this.Chat.ItemHeight = 20;
             this.Chat.Location = new System.Drawing.Point(0, 0);
             this.Chat.Name = "Chat";
-            this.Chat.Size = new System.Drawing.Size(280, 341);
+            this.Chat.Size = new System.Drawing.Size(280, 420);
             this.Chat.TabIndex = 0;
             this.Chat.Click += new System.EventHandler(this.Chat_Click);
-            this.Chat.SelectedIndexChanged += new System.EventHandler(this.Chat_SelectedIndexChanged);
             // 
             // textBoxPing
             // 
@@ -164,7 +167,7 @@
             this.textBoxPing.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPing.Location = new System.Drawing.Point(3, 431);
             this.textBoxPing.Name = "textBoxPing";
-            this.textBoxPing.Size = new System.Drawing.Size(240, 37);
+            this.textBoxPing.Size = new System.Drawing.Size(240, 27);
             this.textBoxPing.TabIndex = 1;
             this.textBoxPing.Click += new System.EventHandler(this.textBoxPing_Click);
             this.textBoxPing.TextChanged += new System.EventHandler(this.textBoxPing_TextChanged);
@@ -192,7 +195,7 @@
             this.ecrirelabel.BackColor = System.Drawing.Color.White;
             this.ecrirelabel.Location = new System.Drawing.Point(141, 435);
             this.ecrirelabel.Name = "ecrirelabel";
-            this.ecrirelabel.Size = new System.Drawing.Size(145, 31);
+            this.ecrirelabel.Size = new System.Drawing.Size(92, 20);
             this.ecrirelabel.TabIndex = 2;
             this.ecrirelabel.Text = "Ecrivez-ici...";
             this.ecrirelabel.Click += new System.EventHandler(this.ecrirelabel_Click);
@@ -211,18 +214,22 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.txtr);
+            this.panel2.Controls.Add(this.startlabel);
             this.panel2.Controls.Add(this.txtv);
+            this.panel2.Controls.Add(this.j1r);
+            this.panel2.Controls.Add(this.j2v);
+            this.panel2.Controls.Add(this.CROWNV);
+            this.panel2.Controls.Add(this.JVERT);
+            this.panel2.Controls.Add(this.j0m);
+            this.panel2.Controls.Add(this.txtr);
             this.panel2.Controls.Add(this.txtm);
             this.panel2.Controls.Add(this.DIAGR);
-            this.panel2.Controls.Add(this.DIAGV);
             this.panel2.Controls.Add(this.DIAGM);
             this.panel2.Controls.Add(this.CROWNR);
-            this.panel2.Controls.Add(this.CROWNV);
             this.panel2.Controls.Add(this.CROWNM);
             this.panel2.Controls.Add(this.JMAG);
             this.panel2.Controls.Add(this.JROUGE);
-            this.panel2.Controls.Add(this.JVERT);
+            this.panel2.Controls.Add(this.DIAGV);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -230,13 +237,24 @@
             this.panel2.TabIndex = 7;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
+            // startlabel
+            // 
+            this.startlabel.AutoSize = true;
+            this.startlabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(157)))), ((int)(((byte)(84)))));
+            this.startlabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startlabel.Location = new System.Drawing.Point(195, 224);
+            this.startlabel.Name = "startlabel";
+            this.startlabel.Size = new System.Drawing.Size(482, 49);
+            this.startlabel.TabIndex = 12;
+            this.startlabel.Text = "La partie va commencer...";
+            // 
             // txtr
             // 
             this.txtr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtr.AutoSize = true;
             this.txtr.Location = new System.Drawing.Point(534, 259);
             this.txtr.Name = "txtr";
-            this.txtr.Size = new System.Drawing.Size(32, 31);
+            this.txtr.Size = new System.Drawing.Size(21, 20);
             this.txtr.TabIndex = 11;
             this.txtr.Text = "...";
             this.txtr.Click += new System.EventHandler(this.txtr_Click);
@@ -247,7 +265,7 @@
             this.txtv.AutoSize = true;
             this.txtv.Location = new System.Drawing.Point(267, 259);
             this.txtv.Name = "txtv";
-            this.txtv.Size = new System.Drawing.Size(32, 31);
+            this.txtv.Size = new System.Drawing.Size(21, 20);
             this.txtv.TabIndex = 10;
             this.txtv.Text = "...";
             this.txtv.Click += new System.EventHandler(this.txtv_Click);
@@ -258,7 +276,7 @@
             this.txtm.AutoSize = true;
             this.txtm.Location = new System.Drawing.Point(510, 133);
             this.txtm.Name = "txtm";
-            this.txtm.Size = new System.Drawing.Size(32, 31);
+            this.txtm.Size = new System.Drawing.Size(21, 20);
             this.txtm.TabIndex = 9;
             this.txtm.Text = "...";
             this.txtm.Click += new System.EventHandler(this.txtm_Click);
@@ -379,7 +397,7 @@
             this.banw.Font = new System.Drawing.Font("Segoe UI Variable Small", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.banw.Location = new System.Drawing.Point(2, 56);
             this.banw.Name = "banw";
-            this.banw.Size = new System.Drawing.Size(142, 27);
+            this.banw.Size = new System.Drawing.Size(100, 19);
             this.banw.TabIndex = 1;
             this.banw.Text = "Mots bannis :";
             this.banw.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -392,7 +410,7 @@
             this.role.Font = new System.Drawing.Font("Segoe UI Variable Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.role.Location = new System.Drawing.Point(0, 0);
             this.role.Name = "role";
-            this.role.Size = new System.Drawing.Size(116, 48);
+            this.role.Size = new System.Drawing.Size(78, 32);
             this.role.TabIndex = 0;
             this.role.Text = "Rôle :";
             this.role.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -408,6 +426,39 @@
             // 
             this.timerpartie.Interval = 1000;
             this.timerpartie.Tick += new System.EventHandler(this.timerpartie_Tick);
+            // 
+            // j0m
+            // 
+            this.j0m.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.j0m.AutoSize = true;
+            this.j0m.Location = new System.Drawing.Point(399, 227);
+            this.j0m.Name = "j0m";
+            this.j0m.Size = new System.Drawing.Size(70, 20);
+            this.j0m.TabIndex = 13;
+            this.j0m.Text = "Joueur 0";
+            this.j0m.Click += new System.EventHandler(this.j0m_Click);
+            // 
+            // j2v
+            // 
+            this.j2v.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.j2v.AutoSize = true;
+            this.j2v.Location = new System.Drawing.Point(258, 443);
+            this.j2v.Name = "j2v";
+            this.j2v.Size = new System.Drawing.Size(70, 20);
+            this.j2v.TabIndex = 14;
+            this.j2v.Text = "Joueur 2";
+            this.j2v.Click += new System.EventHandler(this.j2v_Click);
+            // 
+            // j1r
+            // 
+            this.j1r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.j1r.AutoSize = true;
+            this.j1r.Location = new System.Drawing.Point(522, 444);
+            this.j1r.Name = "j1r";
+            this.j1r.Size = new System.Drawing.Size(68, 20);
+            this.j1r.TabIndex = 15;
+            this.j1r.Text = "Joueur 1";
+            this.j1r.Click += new System.EventHandler(this.j1r_Click);
             // 
             // FormClient
             // 
@@ -483,6 +534,10 @@
         private System.Windows.Forms.Label txtr;
         private System.Windows.Forms.Label txtv;
         private System.Windows.Forms.Label txtm;
+        private System.Windows.Forms.Label startlabel;
+        private System.Windows.Forms.Label j1r;
+        private System.Windows.Forms.Label j2v;
+        private System.Windows.Forms.Label j0m;
     }
 }
 
