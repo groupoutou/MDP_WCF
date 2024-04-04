@@ -11,7 +11,7 @@ namespace TestWCF
     public interface IService
     {
         [OperationContract]
-        void Envoie(int ID, string msg);
+        void Envoie(int ID, string msg,string horodatage = null);
 
         [OperationContract]
         // mode 1 : attribution des role mode 2 : jeu

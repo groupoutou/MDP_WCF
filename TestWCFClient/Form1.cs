@@ -76,20 +76,39 @@ namespace TestWCFClient
             (s as ICommunicationObject).Close();
         }
 
+        //scan du serveur
         private void timer1_Tick(object sender, EventArgs e)
         {
 
             string newline = s.Maj(ID , mode);
             if (mode == 2)
             {
-                if(newline == string.Format("joueur{0} à trouvé le mot de passe ", ID))
+                for (int i = 0; i <= 2; i++)
                 {
-                    gagner = true;
-                    if(timerpartie.Enabled==true)
+                    if (newline == string.Format("joueur {0} à trouvé le mot de passe ", i))
                     {
-                        timerpartie.Stop();
-                        score += (int)(10800 * (1 / ((double)compteur + 1)));
-                        Scorelabel.Text = "Score: " + score + " pts";
+                        if (i == 0)
+                        {
+                            CROWNM.Show();
+                        }
+                        if (i == 1)
+                        {
+                            CROWNR.Show();
+                        }
+                        if (i == 2)
+                        {
+                            CROWNV.Show();
+                        }
+                        if (i == ID)
+                        {
+                            gagner = true;
+                            if (timerpartie.Enabled == true)
+                            {
+                                timerpartie.Stop();
+                                score += (int)(10800 * (1 / ((double)compteur + 1)));
+                                Scorelabel.Text = "Score: " + score + " pts";
+                            }
+                        }
                     }
                 }
                 if (newline == "tous les joueur ont gagnes")
@@ -115,6 +134,35 @@ namespace TestWCFClient
                     if (newline != Chat.Items[Chat.Items.Count - 1].ToString()) { // ligne nouvelle
                        if ( !newline.Contains("Mot trop proche d'un mot banni"))
                         {
+                
+                          if (newline.Length > 10)
+                            {
+                                txtm.Hide();
+                                txtv.Hide();
+                                txtr.Hide();
+                                DIAGM.Hide();
+                                DIAGV.Hide();
+                                DIAGR.Hide();
+                                string bubble = newline.Substring(10, newline.IndexOf(' ', 10)-10);
+                                if (newline[6] == '0')
+                                {
+                                    txtm.Text = bubble;
+                                    txtm.Show();
+                                    DIAGM.Show();
+                                }
+                                if (newline[6] == '1')
+                                {
+                                    txtr.Text = bubble;
+                                    txtr.Show();
+                                    DIAGR.Show();
+                                }
+                                if (newline[6] == '2')
+                                {
+                                    txtv.Text = bubble;
+                                    txtv.Show();
+                                    DIAGV.Show();
+                                }
+                            }
                             Chat.Items.Add(newline);
                         }
                     }
@@ -161,34 +209,20 @@ namespace TestWCFClient
   
 
        
-
+        //envoie au serveur
         private void textBoxPing_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
                 if (mode == 2 && !gagner)
                 {
+                    string newline = textBoxPing.Text;
                     if (mj)
                     {
-                        string newline = Motvalide(textBoxPing.Text);
-                        int k = newline.Length;
-                        for (int i = 0; i < 41 - (2*k); i++)
-                        {
-                            newline += " ";
-                        }
-                        newline += horodatage;
-                        s.Envoie(ID, newline);
+                         newline = Motvalide(textBoxPing.Text);
+                       
                     }
-                    else if (!mj)
-                    {
-                        int k = textBoxPing.Text.Length;
-                        for (int i = 0; i < 41 - (2*k); i++)
-                        {
-                            textBoxPing.Text += " ";
-                        }
-                        textBoxPing.Text += horodatage;
-                        s.Envoie(ID, textBoxPing.Text);
-                    }
+                    s.Envoie(ID, newline,horodatage);
                 }
                 textBoxPing.Clear();
             }
@@ -202,22 +236,12 @@ namespace TestWCFClient
                 if (mj)
                 {
                     string newline = Motvalide(textBoxPing.Text);
-                   int k = newline.Length;
-                    for(int i = 0; i < 41-(2*k); i++)
-                    {
-                        newline += " ";
-                    }
-                    newline += horodatage;
+                  
                     s.Envoie(ID, newline);
                 }
-                else if (!mj)
+                else 
                 {
-                    int k = textBoxPing.Text.Length;
-                    for (int i = 0; i < 41 - (2 * k); i++)
-                    {
-                        textBoxPing.Text += " ";
-                    }
-                    textBoxPing.Text += horodatage;
+
                     s.Envoie(ID, textBoxPing.Text);
                 }
             }
@@ -232,12 +256,12 @@ namespace TestWCFClient
 
             if (r== DialogResult.Yes)
             {
-                s.Envoie(ID,string.Format("joueur{0} à quitté la partie ", ID)); //marche pas zebi
+                s.Envoie(ID,string.Format("joueur {0} à quitté la partie ", ID)); 
                 this.Close();
             }
         }
 
-        private void danseclk_Tick(object sender, EventArgs e) //TKT
+        private void danseclk_Tick(object sender, EventArgs e) 
         {
             if (banw.Text == "   ♪┌|∵⁠|┘♪   └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪   ♪┌|∵⁠|┘♪    └|∵|┐♪")
             {
@@ -438,6 +462,11 @@ namespace TestWCFClient
             {
                 ecrirelabel.Show();
             }
+        }
+
+        private void Chat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void timerpartie_Tick(object sender, EventArgs e)

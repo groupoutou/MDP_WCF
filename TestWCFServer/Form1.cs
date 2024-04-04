@@ -10,6 +10,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.IO;
 using Microsoft.SqlServer.Server;
+using System.Threading;
 
 namespace TestWCFServer
 {
@@ -45,11 +46,11 @@ namespace TestWCFServer
                 ihm = f;
             }
 
-            public void Envoie(int ID, string msg)
+            public void Envoie(int ID, string msg,string horodatage = null)
             {
                 if (msg.ToLower() == password.ToLower())
                 {
-                    string newline = string.Format("joueur{0} à trouvé le mot de passe ", ID);
+                    string newline = string.Format("joueur {0} à trouvé le mot de passe ", ID);
                     ihm.Historique.Items.Add(newline);
                     nb_winner++;
                     if(nb_jouer-1 == nb_winner)
@@ -60,8 +61,14 @@ namespace TestWCFServer
                     }
                 }
                 else
-                {
+                {        
                     string newline = string.Format("joueur{0} : ", ID) + msg;
+                    int k = newline.Length;
+                    for (int i = 0; i < 41 - (2 * k); i++)
+                    {
+                        newline += " ";
+                    }
+                    newline += horodatage;
                     if (ihm.Historique.Items[ihm.Historique.Items.Count - 1].ToString() != newline)
                     {
                         ihm.Historique.Items.Add(newline);
@@ -84,9 +91,10 @@ namespace TestWCFServer
                 }
                 if(mode == 1)
                 {
+                    Thread.Sleep(2000);
                    if(ID == mj)
                     {
-                        ihm.Historique.Items.Add(string.Format("joueur{0} est le mj ", mj));
+                        ihm.Historique.Items.Add(string.Format("joueur {0} est le mj ", mj));
                         ChangePassword();
                        
                         return ("1" + banlist);
@@ -102,7 +110,7 @@ namespace TestWCFServer
                 {
                     if(Program.etat[i] == -1){
                         Program.etat[i] = 1;
-                        ihm.Historique.Items.Add(string.Format("joueur{0} a rejoint ", i));
+                        ihm.Historique.Items.Add(string.Format("joueur {0} a rejoint ", i));
                         nb_jouer = i+1;
                         return i;
                     }
