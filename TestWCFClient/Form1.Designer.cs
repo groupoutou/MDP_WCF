@@ -105,7 +105,7 @@
             this.Scorelabel.Font = new System.Drawing.Font("Segoe UI Variable Small", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Scorelabel.Location = new System.Drawing.Point(15, 224);
             this.Scorelabel.Name = "Scorelabel";
-            this.Scorelabel.Size = new System.Drawing.Size(150, 43);
+            this.Scorelabel.Size = new System.Drawing.Size(99, 28);
             this.Scorelabel.TabIndex = 2;
             this.Scorelabel.Text = "Score : 0";
             this.Scorelabel.Click += new System.EventHandler(this.Scorelabel_Click);
@@ -116,7 +116,7 @@
             this.CHRONO.Font = new System.Drawing.Font("Segoe UI Variable Small", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CHRONO.Location = new System.Drawing.Point(3, 143);
             this.CHRONO.Name = "CHRONO";
-            this.CHRONO.Size = new System.Drawing.Size(268, 96);
+            this.CHRONO.Size = new System.Drawing.Size(178, 64);
             this.CHRONO.TabIndex = 1;
             this.CHRONO.Text = "00 : 00";
             this.CHRONO.Click += new System.EventHandler(this.CHRONO_Click);
@@ -150,13 +150,12 @@
             this.Chat.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Chat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(221)))));
             this.Chat.FormattingEnabled = true;
-            this.Chat.ItemHeight = 31;
+            this.Chat.ItemHeight = 20;
             this.Chat.Location = new System.Drawing.Point(0, 0);
             this.Chat.Name = "Chat";
-            this.Chat.Size = new System.Drawing.Size(280, 372);
+            this.Chat.Size = new System.Drawing.Size(280, 360);
             this.Chat.TabIndex = 0;
             this.Chat.Click += new System.EventHandler(this.Chat_Click);
-            this.Chat.SelectedIndexChanged += new System.EventHandler(this.Chat_SelectedIndexChanged);
             // 
             // textBoxPing
             // 
@@ -164,7 +163,7 @@
             this.textBoxPing.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPing.Location = new System.Drawing.Point(3, 431);
             this.textBoxPing.Name = "textBoxPing";
-            this.textBoxPing.Size = new System.Drawing.Size(240, 37);
+            this.textBoxPing.Size = new System.Drawing.Size(240, 27);
             this.textBoxPing.TabIndex = 1;
             this.textBoxPing.Click += new System.EventHandler(this.textBoxPing_Click);
             this.textBoxPing.TextChanged += new System.EventHandler(this.textBoxPing_TextChanged);
@@ -192,7 +191,7 @@
             this.ecrirelabel.BackColor = System.Drawing.Color.White;
             this.ecrirelabel.Location = new System.Drawing.Point(141, 435);
             this.ecrirelabel.Name = "ecrirelabel";
-            this.ecrirelabel.Size = new System.Drawing.Size(145, 31);
+            this.ecrirelabel.Size = new System.Drawing.Size(92, 20);
             this.ecrirelabel.TabIndex = 2;
             this.ecrirelabel.Text = "Ecrivez-ici...";
             this.ecrirelabel.Click += new System.EventHandler(this.ecrirelabel_Click);
@@ -236,7 +235,7 @@
             this.txtr.AutoSize = true;
             this.txtr.Location = new System.Drawing.Point(534, 259);
             this.txtr.Name = "txtr";
-            this.txtr.Size = new System.Drawing.Size(32, 31);
+            this.txtr.Size = new System.Drawing.Size(21, 20);
             this.txtr.TabIndex = 11;
             this.txtr.Text = "...";
             this.txtr.Click += new System.EventHandler(this.txtr_Click);
@@ -247,7 +246,7 @@
             this.txtv.AutoSize = true;
             this.txtv.Location = new System.Drawing.Point(267, 259);
             this.txtv.Name = "txtv";
-            this.txtv.Size = new System.Drawing.Size(32, 31);
+            this.txtv.Size = new System.Drawing.Size(21, 20);
             this.txtv.TabIndex = 10;
             this.txtv.Text = "...";
             this.txtv.Click += new System.EventHandler(this.txtv_Click);
@@ -258,7 +257,7 @@
             this.txtm.AutoSize = true;
             this.txtm.Location = new System.Drawing.Point(510, 133);
             this.txtm.Name = "txtm";
-            this.txtm.Size = new System.Drawing.Size(32, 31);
+            this.txtm.Size = new System.Drawing.Size(21, 20);
             this.txtm.TabIndex = 9;
             this.txtm.Text = "...";
             this.txtm.Click += new System.EventHandler(this.txtm_Click);
@@ -371,7 +370,6 @@
             this.rolepan.Size = new System.Drawing.Size(478, 100);
             this.rolepan.TabIndex = 6;
             this.rolepan.Click += new System.EventHandler(this.rolepan_Click);
-            this.rolepan.Paint += new System.Windows.Forms.PaintEventHandler(this.rolepan_Paint);
             // 
             // banw
             // 
@@ -380,7 +378,7 @@
             this.banw.Font = new System.Drawing.Font("Segoe UI Variable Small", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.banw.Location = new System.Drawing.Point(2, 56);
             this.banw.Name = "banw";
-            this.banw.Size = new System.Drawing.Size(142, 27);
+            this.banw.Size = new System.Drawing.Size(100, 19);
             this.banw.TabIndex = 1;
             this.banw.Text = "Mots bannis :";
             this.banw.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -393,7 +391,7 @@
             this.role.Font = new System.Drawing.Font("Segoe UI Variable Small", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.role.Location = new System.Drawing.Point(0, 0);
             this.role.Name = "role";
-            this.role.Size = new System.Drawing.Size(116, 48);
+            this.role.Size = new System.Drawing.Size(78, 32);
             this.role.TabIndex = 0;
             this.role.Text = "Rôle :";
             this.role.TextAlign = System.Drawing.ContentAlignment.TopCenter;

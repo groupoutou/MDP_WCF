@@ -21,6 +21,7 @@ namespace TestWCFClient
         private bool mj;
         private  string[] banlist;
         private int compteur, score;
+        string horodatage = string.Format("{0:00} : {1:00}", System.DateTime.Now.Hour, System.DateTime.Now.Minute);
         public FormClient()
         {
             InitializeComponent();
@@ -48,7 +49,6 @@ namespace TestWCFClient
             DIAGV.Hide();
             DIAGR.Hide();
         }
-
 
         private string Motvalide(string text )
         {
@@ -171,10 +171,22 @@ namespace TestWCFClient
                     if (mj)
                     {
                         string newline = Motvalide(textBoxPing.Text);
+                        int k = newline.Length;
+                        for (int i = 0; i < 41 - (2*k); i++)
+                        {
+                            newline += " ";
+                        }
+                        newline += horodatage;
                         s.Envoie(ID, newline);
                     }
                     else if (!mj)
                     {
+                        int k = textBoxPing.Text.Length;
+                        for (int i = 0; i < 41 - (2*k); i++)
+                        {
+                            textBoxPing.Text += " ";
+                        }
+                        textBoxPing.Text += horodatage;
                         s.Envoie(ID, textBoxPing.Text);
                     }
                 }
@@ -190,10 +202,22 @@ namespace TestWCFClient
                 if (mj)
                 {
                     string newline = Motvalide(textBoxPing.Text);
+                   int k = newline.Length;
+                    for(int i = 0; i < 41-(2*k); i++)
+                    {
+                        newline += " ";
+                    }
+                    newline += horodatage;
                     s.Envoie(ID, newline);
                 }
                 else if (!mj)
                 {
+                    int k = textBoxPing.Text.Length;
+                    for (int i = 0; i < 41 - (2 * k); i++)
+                    {
+                        textBoxPing.Text += " ";
+                    }
+                    textBoxPing.Text += horodatage;
                     s.Envoie(ID, textBoxPing.Text);
                 }
             }
@@ -414,16 +438,6 @@ namespace TestWCFClient
             {
                 ecrirelabel.Show();
             }
-        }
-
-        private void rolepan_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Chat_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void timerpartie_Tick(object sender, EventArgs e)
