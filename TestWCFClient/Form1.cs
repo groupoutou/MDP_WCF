@@ -59,7 +59,7 @@ namespace TestWCFClient
                     string strlow = str.ToLower();
                     string textlow = text.ToLower();
                     int commonCharacters = (strlow.Distinct()).Intersect(textlow.Distinct()).Count();
-                    bool isMoreThanHalf = (double)commonCharacters / strlow.Length > 0.5;
+                    bool isMoreThanHalf = (double)commonCharacters / strlow.Length > 0.8;
                     if (isMoreThanHalf)
                     {
                         Chat.Items.Add("Mot trop proche d'un mot banni");
